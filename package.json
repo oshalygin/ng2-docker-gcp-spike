@@ -1,7 +1,8 @@
 {
   "name": "ng2-docker-gcp-spike",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
+  "author": "Oleg Shalygin <oshalygin@gmail.com>",
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",

@@ -1,0 +1,16 @@
+sudo: required
+
+services:
+  - docker
+
+language: node_js
+
+node_js:
+  - "7.2.1"
+
+after_success:
+  - docker build --build-arg version=$(node -p -e "require('./package.json').version") -t index.docker.io/oshalygin/ng2-gcp:$(node -p -e "require('./package.json').version") .
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+      docker push oshalygin/olegjs:$(node -p -e "require('./package.json').version");
+    fi
