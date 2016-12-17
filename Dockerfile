@@ -13,6 +13,7 @@ COPY . /wwwroot
 WORKDIR /wwwroot
 EXPOSE $PORT
 
+RUN npm install angular-cli -g
 RUN npm install
 
 ENTRYPOINT  ["npm", "start"]
